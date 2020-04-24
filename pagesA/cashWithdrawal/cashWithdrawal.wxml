@@ -1,0 +1,23 @@
+<view class="header">
+  <view class="balance">
+    <text class="balanceTitle">到账银行:</text>
+    <view wx:if="{{hasBandCard}}">
+      <text class="money">{{modal.cardName}}</text>
+      <text class="money">{{modal.cardNumber}}</text>
+    </view>
+    <view wx:else>
+      <text class="money" bindtap='bindBandCard'>点击绑定银行卡>></text>
+    </view>
+  </view>
+  <view class="tianxian">
+    <text class="tixianTitle">提现金额</text>
+    <view class="jine">
+      <text class="jineTitle">￥</text>
+      <input type="digit" bindinput='phone'></input>
+    </view>
+  </view>
+</view>
+<text style="margin-left:50rpx;margin-top:50rpx;font-size:25rpx;">温馨提示：申请提现后24小时内到账</text>
+<view class="submit">
+  <button bindtap='submit'>确认提现</button>
+</view>

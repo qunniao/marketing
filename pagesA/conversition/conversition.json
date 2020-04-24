@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "my-component": "/pages/custom/custom-component"
+  }
+}

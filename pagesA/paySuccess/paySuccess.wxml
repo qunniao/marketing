@@ -1,0 +1,116 @@
+<view class='header'>
+  <view class='headerTop'>
+    <text class='type' wx:if="{{item.orderState == 0}}">已取消</text>
+    <text class='type' wx:if="{{item.orderState == 1}}">待付款</text>
+    <text class='type' wx:if="{{item.orderState == 2}}">待发货</text>
+    <text class='type' wx:if="{{item.orderState == 3}}">待收货</text>
+    <text class='type' wx:if="{{item.orderState == 4}}">已完成</text>
+    <text class='type' wx:if="{{item.orderState == 5}}">退款中</text>
+    <text class='type' wx:if="{{item.orderState == 6}}">退款完成</text>
+    <image src='../../imgs/type.png' class='typeimg'></image>
+  </view>
+  <image src='../../imgs/caidai.png' class='caidai'></image>
+  <view class='tubiao_name_phone_address'>
+    <image src='../../imgs/address.png' style="width:50rpx;height:50rpx;"></image>
+    <view class='name_phone_address'>
+      <view class='name_phone'>
+        <text class='name'>{{item.contactName}}</text>
+        <text class='phone'>{{item.contactPhone}}</text>
+      </view>
+      <text class='address'>{{item.contactAddress}}</text>
+    </view>
+  </view>
+</view>
+
+<view class='center'>
+  <view class='productList'>
+    <view class='productItem' wx:for="{{product}}">
+      <image src='{{item.cover}}'></image>
+      <view class='title_guige_price_num'>
+        <text class='title'>{{item.title}}</text>
+        <!-- <text class='guige'>规格: 全部套装【68块】</text> -->
+        <view class='prcie_num'>
+          <text class='price'>￥{{item.productPrice}}</text>
+          <text class='num'>x{{item.productNum}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='classfication'>
+    <view class='classItem'>
+      <text class='itemTitle'>商品总价</text>
+      <text class='itemPrice'>￥{{item.totalPrice}}</text>
+    </view>
+    <view class='classItem'>
+      <text class='itemTitle'>运费</text>
+      <text class='itemPrice'>￥{{item.freight}}</text>
+    </view>
+     <view class='classItem'>
+      <text class='itemTitle'>优惠金额</text>
+      <text class='itemPrice'>￥{{item.discount}}</text>
+    </view>
+     
+    <view class='classItem'>
+      <text class='itemTitle2'>订单总价</text>
+      <text class='itemPrice2'>￥{{item.payMoney}}</text>
+    </view>
+   
+  </view>
+</view>
+
+<view class='order'>
+  <view class='orderDetails'>
+    <view class='orderBianhao'>订单编号：{{item.orderNumber}}</view>
+    <view class='orderTime'>微信交易号：{{item.payNumber}}</view>
+    <view class='orderTime'>创建时间：{{item.gmtCreate}}</view>
+  </view>
+</view>
+
+<view class='bottom'>
+  <view class='gouwuche'>
+    <button bindtap="gouwuche" open-type="contact">
+      <view class='bzd' wx:if="{{shopLength == 0}}">
+        <image src='../../imgs/gouwuchede.png'></image>
+      </view>
+      <view class='bzd' wx:else>
+        <image src='../../imgs/shouhou.png'></image>
+      </view>
+      <text class='gouwucehTitle'>客服</text>
+    </button>
+  </view>
+
+  <view class='twoButton' wx:if="{{item.orderState == 0}}">
+        <view class='buttons'>
+          <button bindtap="deleteOrder" data-id="{{item.id}}">删除订单</button>
+        </view>
+      </view>
+
+  <view class='twoButton' wx:if="{{item.orderState == 1}}">
+      <view class='buttons'>
+        <button bindtap="cancel" data-id="{{item.id}}">取消订单</button>
+        <button bindtap="payment">付款</button>
+      </view>
+    </view>
+    <view class='twoButton' wx:if="{{item.orderState == 2}}">
+      <text class='changeToCloudStore' data-id="{{item.id}}" bindtap="changeToCloudStore">转入云库存</text>
+      <view class='buttons'>
+        <button data-id="{{item.id}}">申请退款</button>
+      </view>
+    </view>
+    <view class='twoButton' wx:if="{{item.orderState == 3}}">
+      <view class='buttons'>
+        <button data-id="{{item.id}}" bindtap="finishOrder">确认收货</button>
+      </view>
+    </view>
+    <view class='twoButton' wx:if="{{item.orderState == 5}}">
+      <view class='buttons'>
+        <button data-id="{{item.id}}">退款中</button>
+      </view>
+    </view>
+    
+    <view class='twoButton' wx:if="{{item.orderState == 6}}">
+      <view class='buttons'>
+        <button bindtap="deleteOrder" data-id="{{item.id}}">删除订单</button>
+      </view>
+    </view>
+</view>

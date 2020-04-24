@@ -1,0 +1,306 @@
+<view class="flex {{isIPX ? 'fix_nav_wp-IPX' : 'fix_nav_wp'}}"> 
+  <view class="nav_link" wx:key='*this' wx:for="{{navData}}"> 
+      <view bindtap='tabbar' data-current="{{item.current}}" class="ppp"> 
+      <!-->
+        <button wx:if="{{item.current < 2}}" class='tabbarButton' hover-class="btn-hover">
+          <view class='center_content'> 
+            <image src='{{item.current == current?item.selectedIconPath:item.iconPath}}'/> 
+          </view> 
+          <view class="center_content {{item.current == current?'tabbar_select':'tabbar_unselect'}}"> 
+            <text>{{item.text}}</text>
+          </view> 
+        </button>
+      <-->
+        <!-- bindgetuserinfo="bindGetUserInfo" wx:if="{{item.current >= 0}}"-->
+        <button open-type="getUserInfo"  hover-class="btn-hover" class='tabbarButton'>
+          <view class='center_content'> 
+            <image src='{{item.current == current?item.selectedIconPath:item.iconPath}}'/> 
+          </view> 
+          <view class="center_content {{item.current == current?'tabbar_select':'tabbar_unselect'}}"> 
+            <text>{{item.text}}</text>
+          </view> 
+        </button>
+      </view> 
+  </view> 
+</view> 
+
+<!-- 首页 -->
+<view class='home' wx:if="{{current==0}}">
+  <!-- 轮播 -->
+  <swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="img"  wo:for-item='item'>
+      <swiper-item>
+        <image src="{{item.cover}}" class="slide-image" width="355" height="150" bindtap="bindLunBo" data-id="{{item.id}}" data-pid="{{item.productId}}"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 搜索 -->
+  <view class='search'>
+    <input type='text' placeholder='搜索商品' bindtap="search" disabled></input>
+    <image src='../../imgs/search.png'></image>
+  </view>
+  <!-- 今日推荐 
+  <view class='recommend'>
+    <view class='recommendTop'>
+      <view class='recommendTopLeft'>
+        <text class='recommendTopLeft_title'>今日推荐</text>
+        <image src='../../imgs/tuijian.png'></image>
+      </view>
+      <view class='recommendTopRight'>
+        <text class='more'>更多</text>
+        <view class='youjiantou'></view>
+      </view>
+    </view>
+    <view class='recommend_product'>
+      <view class='recommend_productItem' bindtap='goDetails' data-pid="{{item.pid}}" wx:for="{{recommend}}" wx:key="recommend_product"  wo:for-item='item'>
+        <image src='{{item.cover}}'></image>
+        <view class='productName_productPrice'>
+          <text class='productName'>{{item.title}}</text>
+          <text class='productPrice'>￥{{item.price}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  -->
+  <!-- 分类 -->
+    <view class="{{scrollTop>400 ? 'rel' : 'nav'}}">
+      <view class='classfication'>
+        <view class='swiper-nav'>
+          <view class='{{sizea==0?"active":"swiper-title"}}' id="kpl" data-sizea='0' catchtap='swiperNav'>
+            <text class="buzhidaode">全部</text>
+          </view>
+        　<view wx:for='{{arr}}' wx:key="arrtype"  wo:for-item='item' class='{{sizea==item.tid?"active":"swiper-title"}}' data-sizea='{{item.tid}}' catchtap='swiperNav'>
+            <text class="buzhidaode">{{item.title}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  <view class='product'>
+    <view class='allProduct' wx:for="{{product}}" wx:key="keyproduct"  wo:for-item='item' bindtap="goDetails" data-pid="{{item.pid}}">
+      <image src='{{item.cover}}'></image>
+      <text class='prpductTitle'>{{item.title}}</text>
+      <!-- <text class='productIntroduce' decode='{{true}}'>【当家爆款和氨基酸】&nbsp;芙丽芳丝&nbsp;&nbsp;洁净洗面奶+舒缓面部</text> -->
+      <view class='price_marketPrice'>
+        <text class='price'>￥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 分类页面 -->
+<view class='home' wx:if="{{current==1}}">
+  <view class='fenleiTop'>
+    <view class='classficationHeader'>
+      <input type='text' class='classInput' bindtap="search" placeholder='搜索商品名称' disabled></input>
+    </view>
+    <view class='sort'>
+      <view class='sortItem'>
+        <text class='sortTitltle'>分类</text>
+      </view>
+      <view class='sortItem' bindtap="moren">
+        <text class='sortTitltle'>默认</text>
+      </view>
+      <view class='sortItem' bindtap='jiage'>
+        <text class='sortTitltle'>价格</text>
+        <view class='shangxia'>
+          <image src='{{sort}}' class='shang'></image>
+          <image src='{{sort1}}' class='xia'></image>
+        </view>
+      </view>
+      <view class='sortItem' bindtap='xiaoliang'>
+        <text class='sortTitltle'>销量</text>
+        <view class='shangxia'>
+          <image src='{{sort2}}' class='shang'></image>
+          <image src='{{sort3}}' class='xia'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='fenleiBottom'>
+    <view class='fenleiBottomLeft'>
+      <view class='{{size==1?"activea":"leftTitle"}}' data-size='1' catchtap='changeOila'>
+        <text class='leftTitleName'>全部</text>
+      </view>
+      <view class='{{size==item.tid?"activea":"leftTitle"}}' data-size='{{item.tid}}' catchtap='changeOila' wx:for="{{productTypes}}" wx:key="key5"  wo:for-item='item'>
+        <text class='leftTitleName'>{{item.title}}</text>
+      </view>
+    </view>
+    <view class='fenleiBottomRIght'>
+      <view class='fenleiBottomRIght_product' wx:for="{{product}}" wx:key="key6"  wo:for-item='item'>
+        <image src='{{item.cover}}' class='productImg' bindtap='goDetails' data-pid="{{item.pid}}"></image>
+        <view class='youbiande'>
+          <text class='productTitle' bindtap='goDetails' data-pid="{{item.pid}}">{{item.title}}</text>
+          <view class='price_gouwuche'>
+            <text class='fenleiPrice' bindtap='goDetails' data-pid="{{item.pid}}">￥{{item.price}}</text>
+            <image src='../../imgs/gouwuche.png' class='gouwucehtubiao' bindtap="powerDrawer" data-bzd="{{item.pid}}" data-statu="open"></image>
+              <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+              <!--content-->
+              <!--使用animation属性指定需要执行的动画-->
+              <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+                <!--drawer content-->
+                <view class="drawer_content">
+                  <view class="shangpinTitle">商品详情</view>
+                  <view class="tupian_mingzi_jiaqian">
+                    <image src="{{tupian}}" class="tupian"></image>
+                    <view class="mingzi_jiaqian">
+                      <text class="mingzi">{{mingzi}}</text>
+                      <view class="jiaqian_gzd">
+                        <text class="jiaqian">￥{{jiaqian}}</text>
+                        <view class="stepper">  
+                          <!-- 减号 -->  
+                          <text class="{{minusStatus}}" bindtap="bindMinusa">-</text>  
+                          <!-- 数值 -->  
+                          <input type="number" bindchange="bindManual" value="{{gnum}}" />  
+                          <!-- 加号 -->  
+                          <text class="normal" bindtap="bindPlusa">+</text>  
+                        </view>  
+                      </view>
+                    </view>
+                  </view>
+                    <view class="quedinga">
+                      <text class="quedingTitle" bindtap="addCard">确定</text>
+                    </view>
+                </view>
+              </view>
+          </view>
+        </view>
+      </view>
+      <view class="guantade"></view>
+    </view>
+  </view>
+</view>
+
+<!-- 购物车页面 -->
+<view class='home' wx:if="{{current==2}}">
+  
+
+  <block wx:if='{{hasList}}'>
+    <view class='toubu'>
+      <text class='cartsNum'>共{{length}}件宝贝</text>
+      <text class='bianji' catchtap="{{adminShow?'adminTap':'wcxg'}}">{{adminShow?'编辑':'完成'}}</text>
+    </view>
+
+    <!-- <>购物车列表 -->
+    <view class="carts-list">
+      <view wx:for="{{carts}}" class="carts-item" wx:key='cart' wx:item='item'>
+        <!-- //复选框 -->
+        <view class="carts-radio">
+          <image class="carts-select" bindtap="bindCheckbox" data-cartPid="{{item.id}}" data-index="{{index}}" src="{{item.isSelect?'/imgs/xuanzhong.png':'/imgs/weixuanzhong.png'}}" />
+        </view>
+        <!-- //商品信息 -->
+        <view class="carts-cnt">
+          <image class="carts-image" src="{{imghref}}{{item.cover}}" mode="aspectFill" />
+          <view class="carts-info">
+            <view class="carts-title clamp2">{{item.productName}}</view>
+            <view class="carts-subtitle">
+              <text class="carts-price c--f60">￥{{item.productPrice}}</text>
+
+              <!-- //数量加减 -->
+              <view class="carts-num">
+                <text class="minus" bindtap="bindMinus" data-cartPid="{{item.id}}" data-index='{{index}}'>-</text>
+                <input type="number" bindinput="bindIptCartNum" data-cartPid="{{item.id}}" data-index='{{index}}' value="{{item.productNum}}" />
+                <text class="plus normal" data-index='{{index}}' data-cartPid="{{item.id}}" bindtap="bindPlus">+</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="carts-footer">
+      <view class="bottomfixed">
+        <view class="inner">
+          <view class="chkAll" bindtap="bindSelectAll">
+            <image class="allselect" src="{{selectAllStatus?'/imgs/xuanzhong.png':'/imgs/weixuanzhong.png'}}" />
+            <text class='quanxuan'>全选</text>
+          </view>
+            <view class="total">
+              <view class='bzd'>
+                <text class='zonggogn'>合计: </text>
+                <text class='jiaqiana'>￥{{totalMoney}}</text>
+              </view>
+              <!--<text class='yunfei'>运费: ￥0</text>-->
+            </view>
+            <view wx:if="{{totalCount != 0}}" class="btn-pay" bindtap="{{adminShow?'bindjiesuan':'bindshanchu'}}">{{adminShow?'结算':'删除'}}({{totalCount}})</view>
+            <view wx:else class="btn-pay disabled">{{adminShow?'结算':'删除'}}({{totalCount}})</view>
+          </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="content">
+      <view style="margin-top:100px;width:100%;">
+        <image src='../../imgs/cart_none.png' style="width:200rpx; height:200rpx" ></image>
+        <view style='font-size:15px;margin-top:20rpx;'>购物车是空的</view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 我的页面 -->
+<view class='home' wx:if="{{current==3}}">
+  <view class='mineHeader' style="background:url({{background}});background-size:100% 100%">
+    <open-data type="userAvatarUrl" class="avatar"></open-data>
+    <open-data type="userNickName" lang="zh_CN" class="nickname"></open-data>
+  </view>
+  <view class='twoButton'>
+    <view class='zuoyou' bindtap='wallet'>
+      <image src='../../imgs/qianbao.png'></image>
+      <text class='zuoyouTitle'>我的钱包</text>
+    </view>
+    <view class='zuoyou' bindtap='commission'>
+      <image src='../../imgs/yongjin.png'></image>
+      <text class='zuoyouTitle'>佣金明细</text>
+    </view>
+  </view>
+  <view class='order'>
+    <view class='orderTop' bindtap='goOrder'>
+      <text class='orderTitle'>我的订单</text>
+      <view class='orderTopRight'>
+        <text class='orderMore'>全部订单</text>
+        <text class='orderYoujiantou'></text>
+      </view>
+    </view>
+    <view class='orderBottom'>
+      <view class='orderItem' bindtap='fukuan'>
+        <image src='../../imgs/daifahuo.png'></image>
+        <text class='orderItemTitle'>待付款</text>
+      </view>
+      <view class='orderItem' bindtap='fahuo'>
+        <image src='../../imgs/daifukuan.png'></image>
+        <text class='orderItemTitle'>待发货</text>
+      </view>
+      <view class='orderItem' bindtap='shouhuo'>
+        <image src='../../imgs/daishouhuo.png'></image>
+        <text class='orderItemTitle'>待收货</text>
+      </view>
+      <view class='orderItem' bindtap='shouhou'>
+        <image src='../../imgs/shouhou.png'></image>
+        <text class='orderItemTitle'>售后</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='helpView'>
+     <view class='helpItem' bindtap='userCloudProduct'>
+        <image src='../../imgs/me_yun.png'></image>
+        <text class='orderItemTitle'>云库存</text>
+      </view>
+      <!-- 
+      <view class='helpItem' bindtap='queding'>
+        <image src='../../imgs/me_inviter.png'></image>
+        <text class='orderItemTitle'>我邀请的人</text>
+      </view>
+      -->
+      <view class='helpItem' bindtap='helpPage'>
+        <image src='../../imgs/me_help.png'></image>
+        <text class='orderItemTitle'>帮助中心</text>
+      </view>
+      <view class='helpItem' bindtap='shezhi'>
+        <image src='../../imgs/me_set.png'></image>
+        <text class='orderItemTitle'>设置</text>
+      </view>
+     
+    </view>
+
+</view>

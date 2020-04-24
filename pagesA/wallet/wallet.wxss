@@ -1,0 +1,64 @@
+.header{
+  width: 100%;
+  position: relative;
+  height: 100rpx;
+}
+
+.mingxi{
+  font-size: 30rpx;
+  color: #333;
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+}
+
+.center{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.center image{
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 100rpx;
+}
+
+.wodelingqian{
+  font-size: 32rpx;
+  color: #333;
+  padding-top: 100rpx;
+}
+
+.price{
+  display: flex;
+  align-items: baseline;
+  margin-top: 30rpx;
+}
+
+.priceTitle{
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.money{
+  font-size: 60rpx;
+  font-weight: bold;
+}
+
+.bottom{
+  width: 60%;
+  height: 100rpx;
+  margin-left: 20%;
+  border-radius: 15rpx;
+  background: #fb312f;
+  position: fixed;
+  bottom: 200rpx;
+  font-size: 32rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

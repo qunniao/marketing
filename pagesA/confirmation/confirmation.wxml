@@ -1,0 +1,90 @@
+<view class='header' style="display:{{you}}">
+  <image src='../../imgs/caidai.png'></image>
+  <view class='name_phone_address' bindtap='shouhuo'>
+    <view class='name_more'>
+      <text class='name'>{{name}}</text>
+      <text class='moren' style="display:{{display}}">默认</text>
+    </view>
+    <view class='phone_address'>
+      <text class='phone'>{{phone}}</text>
+      <text class='address'>{{address}}</text>
+    </view>
+  </view>
+  <view class='xiugai' bindtap='xiugai'>
+    <image src='../../imgs/xiugai.png'></image>
+    <text class='xiugaiTitle'>修改</text>
+  </view>
+</view>
+<view class="buzhidao" style="display:{{meiyou}}" bindtap='shouhuo'>
+  <text>选择地址</text>
+</view>
+<view class='center'>
+  <view class='productList'>
+    <view class='productItem' wx:for="{{productItem}}">
+      <image src="{{item.cover?item.cover:'../../imgs/lunbo.jpg'}}"></image>
+      <view class='title_guige_price_num'>
+        <text class='title'>{{item.productName}}</text>
+        <!-- <text class='guige'>规格：全部套装【68块】</text> -->
+        <view class='price_num'>
+          <text class='price'>￥{{item.productPrice}}</text>
+          <text class='num'>x{{item.productNum}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='productYh'>
+    <view class='yhItem'>
+      <text class='yhTitle'>商品总额：</text>
+      <view class='youbuainde'>
+        <text class='yhPrice'>￥{{orderPrice}}</text>
+      </view>
+    </view>
+    <view class='yhItem' wx:if="{{discountShow}}">
+      <text class='yhTitle'>优惠金额：</text>
+      <view class='youbuainde'>
+        <text class='yhPrice'>-￥{{discount}}</text>
+      </view>
+    </view>
+    <!--
+    <view class='yhItem'>
+      <text class='yhTitle'>优惠减免：</text>
+      <view class='youbuainde'>
+        <text class='yhPrice'>￥100</text>
+      </view>
+    </view>
+    -->
+    <view class='yhItem'>
+      <text class='yhTitle'>配送方式：快递物流</text>
+      <view class='youbuainde'>
+        <text class='yunfei'>运费：</text>
+        <text class='yhPrice'>￥{{freight}}</text>
+      </view>
+    </view>
+     
+     
+  </view>
+</view>
+
+<view class='liuyan'>
+  <view class='liuyanTitle'>
+    <text class='liuyanName'>留言：</text>
+    <textarea placeholder='给卖家留言' bindinput="remark"></textarea>
+  </view>
+</view>
+
+<view class='dangzhu'></view>
+
+<view class='bottom'>
+  <view class='bottomLeft'>
+    <view class='heji'>
+      <text class='hejiTitle'>合计：</text>
+      <view class='pricede'>
+        <text class='hejiPrice'>￥{{totlePrice}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='submit' bindtap="submit">
+    提交订单
+  </view>
+</view>

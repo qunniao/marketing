@@ -1,0 +1,32 @@
+<view class='header'>
+  <text class='yongjinPrice'>总佣金：￥{{totalMoney}}</text>
+  <!-- <view class='youbiande'>
+    <text class='time'>2010-12</text>
+    <image src='../../imgs/xiajiantou2.png'></image>
+  </view> -->
+</view>
+
+<view class='orderList'>
+  <view class='orderItem' wx:for="{{list}}">
+    <view class='orderBianhao_type'>
+      <text class='bianhao'>购买用户：{{item.userListVO.nickname}}</text>
+      <text class='type' wx:if="{{item.awardState == 1}}">待结算</text>
+      <text class='type' wx:if="{{item.awardState == 3}}">已到账</text>
+    </view>
+    <view class='img_title_price_num'>
+      <image src='{{item.productListVO.cover}}' class='img'></image>
+      <text class='title'>{{item.productListVO.title}}</text>
+      <view class='price_num'>
+        <text class='price'>￥{{item.orderProductVO.productPrice}}</text>
+        <text class='num'>x{{item.orderProductVO.productNum}}</text>
+      </view>
+    </view>
+    <view class='gong_heji'>
+      <view class='gongde'>
+        <text class='heji'>佣金:￥{{item.awardMoney}}</text>
+      </view>
+    </view>
+   
+
+  </view>
+</view>

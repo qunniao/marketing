@@ -1,0 +1,24 @@
+
+<view class='center'>
+  <view class='productList'>
+    <view class='productItem'>
+      <image src="{{item.cover?item.cover:'../../imgs/lunbo.jpg'}}"></image>
+      <view class='title_guige_price_num'>
+        <text class='title'>{{item.productName}}</text>
+        <!-- <text class='guige'>规格：全部套装【68块】</text> -->
+        <view class='price_num'>
+          <text class='price'>￥{{item.productPrice}}</text>
+          <text class='num'>x{{item.productNum}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='shouhuodizhi' bindtap="address">
+  <text class='classficationTitle'>我要退款(无需退货)</text>
+  <view class='righta'></view>
+</view>
+<button class='shouhuodizhi' open-type="contact">
+  <text class='classficationTitle'>我要退货退款</text>
+  <view class='righta'></view>
+</button>

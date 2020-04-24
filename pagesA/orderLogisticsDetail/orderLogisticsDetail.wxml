@@ -1,0 +1,56 @@
+<!-- 外层pages -->
+<view class='pages'> 
+  <!-- 头部 -->
+  <view class='head'>
+    <image class='head_img' src='{{cover}}'></image>
+    <view class='tabulate'>
+      <label class='head_name'>物流状态：
+        <text style='color:#000;font-size:30rpx;' wx:if='{{traceModal.State==3}}'>已签收</text> 
+        <text style='color:#000;font-size:30rpx;' wx:if='{{traceModal.State==2}}'>在途中</text> 
+        <text style='color:#000;font-size:30rpx;' wx:if='{{traceModal.State==4}}'>问题件</text> 
+      </label>
+      <label class='head_title'>物流公司：<text style='color:#000'>{{modal.expressCompany}}</text></label>
+      <label class='head_title'>快递单号: <text style='color:#000'>{{modal.logisticCode}}</text></label>
+    </view>
+  </view>
+    <!-- 追踪 -->
+    <view wx:if='{{hasData}}'>
+      <view class='logisit' wx:for="{{list}}" wx:key="key" wx:for-item='item' wx:for-index="index">    
+        <!-- 左边子容器 -->
+        <!-- 显示顶部收的圆点 -->
+       
+        <view class='express-middle-axis'> 
+         <view wx:if='{{index==0}}'>
+          <view wx:if='{{traceModal.State==3}}'>
+            <image class='dot-shou' src='../../imgs/xuanzhong.png' ></image>
+          </view>
+          <view wx:else>
+            <view class='dot-closing' >></view>
+          </view>
+         </view>
+         <view wx:else>
+          <view class='dot-closing' >></view>
+          <view class='online-top-closing' ></view>
+         </view>
+        <!--
+            <view  wx:if='{{item.display==1}}'>            
+              <view class='dot-closing' >></view>
+              <view class='online-top-closing'></view>
+            </view>
+            <view wx:else>
+              <image class='dot-shou' src='../../imgs/xuanzhong.png' ></image>
+            </view>
+          -->
+        </view>
+        <!-- 右边子容器 -->
+        <view class='express-right'>
+          <view class='express-status-address {{item.display==0?"color":"color_second"}}'>{{item.AcceptStation}}</view>
+          <view class='express-statusing {{item.display==0?"color":"color_second"}}'>{{item.AcceptTime}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='buttom' wx:else>
+      <text>暂时没有物流信息,请稍后再来~</text>
+    </view>  
+  </view>
+<view class='line'></view>

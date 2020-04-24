@@ -1,0 +1,104 @@
+
+
+<view class='productItem'>
+  <image src="{{item.cover?item.cover:'../../imgs/lunbo.jpg'}}"></image>
+  <view class='title_guige_price_num'>
+    <text class='title'>{{item.title}}</text>
+    <!-- <text class='guige'>规格：全部套装【68块】</text> -->
+    <view class='price_num'>
+      <text class='price'>￥{{item.productPrice}}</text>
+      <text class='num'>x{{item.productNum}}</text>
+    </view>
+  </view>
+</view>
+
+<view class='shouhuodizhi' bindtap='bindProductState' data-statu="open">
+  <text class='classficationTitle'>货物状态:</text>
+  <text class='classficationTitleRight'>{{productStateList[productState].name}}</text>
+  <view class='righta'></view>
+</view>
+<view class='shouhuodizhi2' bindtap="bindRefundWhy" data-statu="open">
+  <text class='classficationTitle'>退款原因:</text>
+  <text class='classficationTitleRight' wx:if="{{productState==0}}">{{refundWhyList[refundWhy].name}}</text>
+  <text class='classficationTitleRight' wx:if="{{productState==1}}">{{refundWhyList2[refundWhy].name}}</text>
+  <view class='righta'></view>
+</view>
+<view class='shouhuodizhi'>
+  <text class='classficationTitle'>退款金额：</text>
+  <view class='price'>￥ </view>
+  <input type="text" bindinput='inputvalue' value="{{refundMoney}}" class='price' style="width:200rpx;display: flex;"/>
+</view>
+<view class="liuyan">
+  <view class='liuyanTitle'>
+    <text class='classficationTitle'>说明：</text>
+    <textarea placeholder='选填' >{{note}}</textarea>
+  </view>
+</view>
+
+<view class='bottom' bindtap="submit">
+    提交
+</view>
+
+<!--使用animation属性指定需要执行的动画-->
+  <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+    <!--drawer content-->
+    <view class="drawer_content">
+      <view class="drawerTop">
+        <text>货物状态</text>
+      </view>
+      <view >
+        <view class='shouhuodizhi' bindtap="bindProductStateUpdate" data-statu="1">
+          <text class='classficationTitle'>已收到货</text>
+          <view class='righta2'>
+            <image  wx:if="{{productState==0}}" src='../../imgs/weixuanzhong.png'></image>
+            <image  wx:if="{{productState==1}}" src='../../imgs/xuanzhong.png'></image>
+            <image  wx:if="{{productState==-1}}" src='../../imgs/weixuanzhong.png'></image>
+          </view>
+        </view>
+        <view class='shouhuodizhi' bindtap="bindProductStateUpdate" data-statu="0">
+          <text class='classficationTitle'>未收到货</text>
+          <view class='righta2'>
+            <image wx:if="{{productState==0}}" src='../../imgs/xuanzhong.png'></image>
+            <image wx:if="{{productState==1}}" src='../../imgs/weixuanzhong.png'></image>
+            <image  wx:if="{{productState==-1}}" src='../../imgs/weixuanzhong.png'></image>
+          </view>
+
+        </view>
+      </view>
+      <view class="drawerBottom">
+        <button bindtap="bindProductStateClose">关闭</button>
+      </view>
+    </view>
+     
+  </view>
+
+<!--使用animation属性指定需要执行的动画-->
+  <view animation="{{animationData2}}" class="drawer_attr_box" wx:if="{{showModalStatus2}}">
+    <!--drawer content-->
+    <view class="drawer_content">
+      <view class="drawerTop">
+        <text>退款原因</text>
+      </view>
+      <view wx:if="{{productState==0}}">
+        <view class='shouhuodizhi3' wx:for="{{refundWhyList}}" wx:key="keyWhy"  wo:for-item='item' bindtap="bindRefundWhyUpdate" data-statu="{{item.val}}">
+            <text class='classficationTitle'>{{item.name}}</text>
+            <view class='righta3'>
+              <image  wx:if="{{refundWhy != item.val}}" src='../../imgs/weixuanzhong.png'></image>
+              <image  wx:if="{{refundWhy == item.val}}" src='../../imgs/xuanzhong.png'></image>
+            </view>
+        </view>
+      </view>
+      <view wx:if="{{productState==1}}">
+        <view class='shouhuodizhi3' wx:for="{{refundWhyList2}}" wx:key="keyWhy2"  wo:for-item='item' bindtap="bindRefundWhyUpdate" data-statu="{{item.val}}">
+            <text class='classficationTitle'>{{item.name}}</text>
+            <view class='righta3'>
+              <image  wx:if="{{refundWhy != item.val}}" src='../../imgs/weixuanzhong.png'></image>
+              <image  wx:if="{{refundWhy == item.val}}" src='../../imgs/xuanzhong.png'></image>
+            </view>
+        </view>
+      </view>
+      <view class="drawerBottom">
+        <button bindtap="bindRefundWhyClose">确定</button>
+      </view>
+    </view>
+  </view>

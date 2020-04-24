@@ -1,0 +1,49 @@
+<!-- header'>
+  <view class='classfication'>
+    <text class='classficationTitle'>头像</text>
+    <image src='../../imgs/lunbo.jpg'></image>
+  </view>
+  <view class='classfication'>
+    <text class='classficationTitle'>姓名</text>
+    <view class='youbian'>
+      <text class='name'>张山</text>
+      <view class='right'></view>
+    </view>
+  </view>
+  <view class='classfication'>
+    <text class='classficationTitle'>性别</text>
+    <view class='youbian'>
+      <text class='name'>男</text>
+      <view class='right'></view>
+    </view>
+  </view>
+  <view class='classfication'>
+    <text class='classficationTitle'>电话</text>
+    <view class='youbian'>
+      <text class='name'>13111111111</text>
+      <view class='right'></view>
+    </view>
+  </view>
+  <view class='classfication'>
+    <text class='classficationTitle'>出生年月</text>
+    <view class='youbian'>
+      <text class='name'>1999.10</text>
+      <view class='right'></view>
+    </view>
+  </view>
+</view>
+-->
+
+
+<view class='shouhuodizhi' bindtap="address">
+  <text class='classficationTitle'>收货地址</text>
+  <view class='righta'></view>
+</view>
+<view class='shouhuodizhi' bindtap="bindBand">
+  <text class='classficationTitle'>绑定银行卡</text>
+  <view class='righta'></view>
+</view>
+<button class='shouhuodizhi' open-type="contact">
+  <text class='classficationTitle'>联系客服</text>
+  <view class='righta'></view>
+</button>

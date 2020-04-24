@@ -1,0 +1,267 @@
+page{
+  background: #F9F9F9;
+}
+.shouhuodizhi{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.shouhuodizhi::after{
+  border: none;
+}
+
+.shouhuodizhi text{
+  padding-left: 5%;
+}
+
+.shouhuodizhi2{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  margin-top: 2rpx;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.shouhuodizhi2::after{
+  border: none;
+}
+
+.shouhuodizhi2 text{
+  padding-left: 5%;
+}
+
+.righta{
+  width: 15rpx;
+  height: 15rpx;
+  border-top: 2rpx solid #9C9C9C;
+  border-right: 2rpx solid #9C9C9C;
+  transform: rotate(45deg);
+  position: absolute;
+  right: 8%;
+}
+.productItem{
+  width: 100%;
+  height: 200rpx;
+  background: #fff;
+  display: flex;
+  position: relative;
+  padding-bottom: 20rpx;
+}
+
+.productItem image{
+  width: 25%;
+  height: 180rpx;
+  margin: 20rpx 20rpx;
+}
+.title_guige_price_num{
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  font-size: 28rpx;
+  padding-top: 15rpx;
+}
+
+.guige{
+  font-size: 28rpx;
+  color: #999999;
+  padding-top: 20rpx;
+}
+
+.prcie_num{
+  display: flex;
+  margin-top: 15rpx;
+}
+
+.price{
+  font-size: 26rpx;
+  color: #fb312f;
+}
+
+.num{
+  font-size: 26rpx;
+  color: #333;
+  position: absolute;
+  right: 30rpx;
+}
+.submit{
+  width: 100%;
+  height: 100rpx;
+  background: #fb312f;
+  align-items: center;
+  font-size: 35rpx;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  margin-top:30rpx;
+  display: flex;
+}
+.bottom{
+  width: 100%;
+  height: 100rpx;
+  background: #fb312f;
+  position: fixed;
+  bottom: 0;
+  font-size: 32rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.liuyan{
+  width: 100%;
+  height: 300rpx;
+  background: #fff;
+}
+
+.liuyanTitle{
+  width: 100%;
+  margin-left: 5%;
+  height: 200rpx;
+  border-bottom: 1px solid #F2F2F2;
+  padding-top: 30rpx;
+  display: flex;
+}
+
+.liuyanName{
+  font-size: 30rpx;
+  color: #333;
+}
+
+.liuyanTitle textarea{
+  width: 80%;
+  height: 100%;
+  font-size: 30rpx;
+}
+.drawer_attr_box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  background: rgba(0, 0, 0, 0.692);
+
+}
+.drawer_content {
+  width: 100%;
+  height: 90%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+}
+.drawer_title {
+  padding: 20rpx;
+  font: 42rpx "microsoft yahei";
+  text-align: center;
+}
+
+.line {
+  border-bottom: 1px solid #f8f8f8;
+}
+
+.drawerTop {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.drawerTop text {
+  font-size: 30rpx;
+  color: #333;
+}
+
+
+
+.drawerCenter image {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 20rpx;
+  border-radius: 15rpx;
+}
+
+.drawerBottom{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+}
+
+.drawerBottom button{
+  width: 100%;
+  height: 85rpx;
+  position: absolute;
+  background: #fb312f;
+  color: #fff;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.righta2{
+  width: 15rpx;
+  height: 15rpx;
+  position: absolute;
+  right: 8%;
+}
+
+.righta2 image{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 8%;
+}
+
+.shouhuodizhi3{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.shouhuodizhi3::after{
+  border: none;
+}
+
+.shouhuodizhi3 text{
+  padding-left: 5%;
+}
+
+.righta3{
+  width: 15rpx;
+  height: 15rpx;
+  position: absolute;
+  align-items: center;
+  right: 8%;
+}
+
+.righta3 image{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 8%;
+}
+

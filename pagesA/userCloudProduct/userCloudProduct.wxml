@@ -1,0 +1,15 @@
+<view class='orderList'>
+  <view class='orderItem' wx:for="{{list}}" wx:key="userCloudProduct"  wo:for-item='item'>
+    
+    <view class='img_title_price_num' bindtap="goDetails" data-pid="{{item.productId}}">
+      <image src='{{item.productListVO.cover}}' class='img'></image>
+      <text class='title'>{{item.productListVO.title}}</text>
+      <view class='price_num'>
+        <text class='price'>￥{{item.productListVO.price}}</text>
+        <text class='num'>x{{item.productNum}}</text>
+      </view>
+    </view>
+    
+    
+  </view>
+</view>

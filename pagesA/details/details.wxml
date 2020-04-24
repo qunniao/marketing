@@ -1,0 +1,164 @@
+<view class='header'>
+  <swiper class="swiper" autoplay="{{autoplay}}" duration="1000" circular="true" bindchange="swiperChange">
+    <swiper-item wx:if="{{hasVideo==true}}">
+      <video id="myVideo" src='{{video}}'
+        bindtap="bofang" controls='true' show-play-btn="false" show-fullscreen-btn="false"></video>
+    </swiper-item>
+     <swiper-item>
+        <image src="{{cover}}" class="slide-image" mode="aspectFill" />
+      </swiper-item>
+    <block wx:for="{{movies}}" wx:for-index="index">
+      <swiper-item>
+        <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='number'>
+    <text>{{swiperCurrent}}/{{length}}</text>
+  </view>
+  <view class='price_name_intraduce'>
+    <view class='price'>
+      <text class='priceTitle'>￥</text>
+      <text class='priceNum'>{{price}}</text>
+    </view>
+    <view class='name_share'>
+      <text class='name'>{{title}}</text>
+      <view class='share'>
+        <button bindtap="share" data-statu="open" canvas-id='canvasids' open-type="getUserInfo">
+          <image src='../../imgs/share.png'></image>
+          <text class='shareTitle'>分享</text>
+        </button>
+      </view>
+      <view class="drawer_screen" bindtap="share" data-statu="close" wx:if="{{showShareStatus}}"></view>
+      <view animation="{{shareData}}" class="drawer_attr_box" wx:if="{{showShareStatus}}">
+        <!--drawer content-->
+        <view class="drawer_content2">
+          <button class="shareItem" open-type='share' bindtap='onShareAppMessage' canvas-id='shareCanvasa'>
+            <image src="../../imgs/weixin.png"></image>
+            <text>分享给好友</text>
+          </button>
+          <view class="shareItem" bindtap='ewshow' canvas-id='canvasids'>
+            <image src="../../imgs/pengyouquan.png" id='pengyouquan'></image>
+            <text>保存海报</text>
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <view class='intraduce'>
+      <text class='intraduceTitle' wx:if="{{productIntroShow}}">{{productIntro}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- <view class='center'>
+  <text class='kuaid'>快递:￥10</text>
+  <text class='yishou' wx:if="{{sales == null}}">已售0件</text>
+  <text class='yishou' wx:else>已售{{sales}}件</text>
+</view> -->
+
+<view class='shangpinxiangqing'>
+  <view class='xiangqingTitle'>
+    <text class='xiangqing'>图文详情</text>
+  </view>
+  <rich-text nodes="{{detailMobile}}"></rich-text>
+</view>
+
+<view class='bottom'>
+  <view class='gouwuche'>
+    <button bindtap="gouwuche" open-type="getUserInfo">
+      <view class='bzd' wx:if="{{shopLength == 0}}">
+        <image src='../../imgs/gouwuchede.png'></image>
+      </view>
+      <view class='bzd' wx:else>
+        <image src='../../imgs/gouwuchede.png'></image>
+        <text class='num'>{{shopLength}}</text>
+      </view>
+      <text class='gouwucehTitle'>购物车</text>
+    </button>
+  </view>
+  <view class='twoButton'>
+    <button bindtap='powerDrawer' data-statu="open" open-type="getUserInfo">加入购物车</button>
+    <button bindtap='confirmation' data-statu="open" open-type="getUserInfo">立即购买</button>
+  </view>
+  <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+   <view class="drawer_screen" bindtap="confirmation" data-statu="close" wx:if="{{showModalStatus2}}"></view>
+  <!--content-->
+  <!--使用animation属性指定需要执行的动画-->
+  <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+    <!--drawer content-->
+    <view class="drawer_content">
+      <view class="drawerTop">
+        <text>加入购物车</text>
+      </view>
+      <view class="drawerCenter">
+        <image src="{{cover}}"></image>
+        <view class="pname_pprice">
+          <text class="pname">{{title}}</text>
+          <view class="pprice_shuliang">
+            <text class="pprice">￥{{price}}</text>
+            <view class="stepper">  
+              <!-- 减号 -->  
+              <text class="sign {{num <= 1 ? 'disabled' : 'normal'}}" bindtap="delCount" data-index="{{index}}">-</text>  
+              <!-- 数值 -->  
+              <input class="number" type="number" bindchange="bindManual" value="{{num}}"  disabled="disabled"/>  
+              <!-- 加号 -->  
+              <text class="sign {{num >= 10 ? 'disabled' : 'normal'}}" bindtap="addCount" data-index="{{index}}">+</text>  
+            </view>  
+          </view>
+        </view>
+      </view>
+    </view>
+      <view class="drawerBottom">
+        <button bindtap="submit">确定</button>
+      </view>
+  </view>
+
+
+
+
+
+
+<!--使用animation属性指定需要执行的动画-->
+  <view animation="{{animationData2}}" class="drawer_attr_box" wx:if="{{showModalStatus2}}">
+    <!--drawer content-->
+    <view class="drawer_content">
+      <view class="drawerTop">
+        <text>立即购买</text>
+      </view>
+      <view class="drawerCenter">
+        <image src="{{cover}}"></image>
+        <view class="pname_pprice">
+          <text class="pname">{{title}}</text>
+          <view class="pprice_shuliang">
+            <text class="pprice">￥{{price}}</text>
+            <view class="stepper">  
+              <!-- 减号 -->  
+              <text class="sign {{num <= 1 ? 'disabled' : 'normal'}}" bindtap="delCount" data-index="{{index}}">-</text>  
+              <!-- 数值 -->  
+              <input class="number" type="number" bindchange="bindManual" value="{{num}}"  disabled="disabled"/>  
+              <!-- 加号 -->  
+              <text class="sign {{num >= 10 ? 'disabled' : 'normal'}}" bindtap="addCount" data-index="{{index}}">+</text>  
+            </view>  
+          </view>
+        </view>
+      </view>
+      <view class="drawerBottom">
+        <button bindtap="confirmationSubmit">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='tsbgbox' wx:if='{{twoshow}}'>
+  <view class='tsbg' bindtap='ewhiden'></view>
+  <canvas class="{{isIPX ? 'cavbox-IPX' : 'cavbox'}}" canvas-id="shareCanvas"></canvas>
+  <view bindtap='save' class="{{isIPX ? 'savebtn-IPX' : 'savebtn'}}">保存到本地</view>
+</view>
+
+<!-- 
+<view class='tsbgboxa' wx:if='{{asd}}'>
+  <view class='tsbga' bindtap='ewhidena'></view>
+  <canvas class="{{isIPX ? 'cavboxa-IPX' : 'cavboxa'}}" canvas-id="shareCanvasa"></canvas>
+</view>
+-->

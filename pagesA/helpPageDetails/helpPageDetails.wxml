@@ -1,0 +1,6 @@
+<view class='header'>
+  <text class='title'>{{modal.title}}</text>
+</view>
+<view class='editor'>
+  <rich-text class='newcontents' nodes='{{modal.content}}'></rich-text>
+</view>

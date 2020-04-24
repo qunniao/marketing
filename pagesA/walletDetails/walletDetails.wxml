@@ -1,0 +1,16 @@
+<view class='mingxiList'>
+  <view class='mingxiItem' wx:for="{{mingxi}}">
+    <view class='left'>
+      <text class='mingxiTitle'>{{item.tradeDesc}}</text>
+      <text class='yue'>{{item.gmtCreate}}</text>
+    </view>
+    <view class='right'>
+      
+      <text class='mingxiPrice' wx:if='{{item.inOut == 1}}'>+{{item.amount}}</text>
+      <text class='mingxiPrice' wx:if='{{item.inOut == 0}}'>-{{item.amount}}</text>
+      <!-- 
+      <text class='time'>{{item.balance}}</text>
+      -->
+    </view>
+  </view>
+</view>

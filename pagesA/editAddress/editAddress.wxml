@@ -1,0 +1,29 @@
+<view class='header'>
+  <view class='classfication'>
+    <text class='classItem'>收货人</text>
+    <input type='text' class='classItemInput' value='{{contactName}}' placeholder='请填写收货人姓名' bindinput='userName'/>
+  </view>
+  <view class='classfication'>
+    <text class='classItem'>手机号码</text>
+    <input type='text' class='classItemInput' value="{{contactPhone}}" bindinput='phone' placeholder='请填写收货人手机号'></input>
+  </view>
+  <view class='classfication'>
+    <text class='classItem'>所在地区</text>
+    <picker mode="region"  value="{{detailed}}"  bindchange="bindRegionChange" custom-item="{{customItem}}" name="detailed" class='piker'>
+      <view class="picker {{clas}}">{{detailed}}</view>
+    </picker>
+    <text class='right'></text>
+  </view>
+  <view class='classtextarea'>
+    <textarea placeholder='请输入街道门牌信息' value="{{contactAddress}}" bindinput='bindTextAreaBlur'></textarea>
+  </view>
+</view>
+
+<view class='moren'>
+  <text class='morenTitle'>设为默认地址</text>
+  <switch class='switch' bindchange="switch1Change"/>
+</view>
+
+<view class='submit'>
+  <button bindtap='submit'>保存</button>
+</view>

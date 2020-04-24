@@ -1,0 +1,82 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.9.4",
+	"appid": "wxcb0646a754eb05bc",
+	"projectname": "marketing",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": 0,
+					"name": "订单退款",
+					"pathName": "pagesA/orderRefundMoney/orderRefundMoney",
+					"query": "orderId=296&orderProductId=147",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单物流详情",
+					"pathName": "pagesA/orderLogisticsDetail/orderLogisticsDetail",
+					"query": "orderId=296&orderProductId=147",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "绑定银行卡",
+					"pathName": "pagesA/band/band",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "钱包页面",
+					"pathName": "pagesA/wallet/wallet",
+					"scene": null
+				}
+			]
+		}
+	}
+}

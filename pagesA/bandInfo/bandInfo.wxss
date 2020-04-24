@@ -1,0 +1,130 @@
+page {
+  background: #f2f1f1;
+}
+
+.header {
+  margin-top: 20rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.classfication {
+  width: 100%;
+  height: 120rpx;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.classItem {
+  font-size: 30rpx;
+  color: #333;
+  padding-left: 20rpx;
+}
+
+.classItemInput {
+  width: 65%;
+  height: 90%;
+  position: absolute;
+  right: 10%;
+  font-size: 28rpx;
+}
+
+.right {
+  width: 7px;
+  height: 7px;
+  border-top: 2px solid #dbdbdb;
+  border-right: 2px solid #dbdbdb;
+  transform: rotate(45deg);
+  position: absolute;
+  right: 20rpx;
+}
+
+.classtextarea {
+  width: 95%;
+  height: 160rpx;
+  margin-left: 2.5%;
+  font-size: 28rpx;
+}
+
+.classtextarea textarea {
+  padding-top: 20rpx;
+  width: 100%;
+  height: 85%;
+}
+
+.moren {
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.morenTitle {
+  font-size: 30rpx;
+  color: #333;
+  padding-left: 20rpx;
+}
+
+.switch {
+  position: absolute;
+  right: 30rpx;
+}
+
+/*swtich整体大小及背景色*/
+
+.wx-switch-input {
+  width: 80rpx !important;
+  height: 40rpx !important;
+  background: #fbabab !important;
+  border: #fbabab !important; /* 2018-07-18 重置开关边框颜色 */
+}
+
+/*白色样式（false的样式）*/
+
+.wx-switch-input::before {
+  width: 80rpx !important;
+  height: 40rpx !important;
+}
+
+/*绿色样式（true的样式）*/
+
+.wx-switch-input::after {
+  width: 45rpx !important;
+  height: 40rpx !important;
+}
+
+.submit{
+  width: 100%;
+  height: 90rpx;
+  position: fixed;
+  bottom: 50rpx;
+}
+
+.submit button{
+  width: 70%;
+  height: 100%;
+  border-radius: 45rpx;
+  background: #fb312f;
+  font-size: 32rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.piker{
+  width: 65%;
+  height: 100%;
+  position: absolute;
+  right: 10%;
+  display: flex;
+  align-items: center;
+  color: #B2B1B1;
+  font-size: 28rpx;
+}

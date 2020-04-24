@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "subpackages": [
+    {
+      "root": "pagesA",
+      "pages": [
+        "details/details",
+        "confirmation/confirmation",
+        "address/address",
+        "editAddress/editAddress",
+        "band/band",
+        "bandInfo/bandInfo",
+        "userCloudProduct/userCloudProduct",
+        "setUp/shezhi",
+        "helpPage/helpPage",
+        "helpPageDetails/helpPageDetails",
+        "wallet/wallet",
+        "walletDetails/walletDetails",
+        "commission/commission",
+        "order/order",
+        "orderDetails/orderDetails",
+        "orderLogisticsDetail/orderLogisticsDetail",
+        "cashWithdrawal/cashWithdrawal",
+        "search/search",
+        "conversition/conversition",
+        "orderRefundMoney/orderRefundMoney"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

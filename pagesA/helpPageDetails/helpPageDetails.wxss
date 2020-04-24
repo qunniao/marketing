@@ -1,0 +1,38 @@
+.header{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.header .title{
+  font-size: 40rpx;
+  color: #333;
+  font-weight: bold;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+.company_time{
+  display: flex;
+  margin-top: 30rpx;
+}
+
+.company{
+  font-size: 28rpx;
+  color: #474980
+}
+
+.time{
+  font-size: 28rpx;
+  color: #9B9B9B;
+  margin-left: 30rpx;
+}
+
+.editor{
+  width: 90%;
+  margin-left: 5%; 
+  margin-bottom: 30rpx;
+  margin-top: 50rpx;
+}

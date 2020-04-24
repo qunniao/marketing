@@ -1,0 +1,16 @@
+<view class='header'>
+  <text class='mingxi' bindtap='mingxi'>零钱明细</text>
+</view>
+
+<view class='center'>
+  <image src='../../imgs/wallet.png'></image>
+  <text class='wodelingqian'>我的零钱</text>
+  <view class='price'>
+    <text class='priceTitle'>￥</text>
+    <text class='money'>{{balance}}</text>
+  </view>
+</view>
+
+<view class='bottom' bindtap="submit">
+  提现
+</view>

@@ -1,0 +1,164 @@
+.fenleiBottomRIght{
+  width: 75%;
+  background: #fff;
+  margin-left: 25%;
+  display: flex;
+  flex-direction: column;
+}
+.fenleiBottomRIght_product{
+  width: 90%;
+  margin-left: 5%;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  position: relative;
+}
+
+.fenleiBottomRIght_product:last-child{
+  border: 0;
+}
+.productImg{
+  width: 35%;
+  height: 180rpx;
+  border-radius: 10rpx;
+  margin: 30rpx 0;
+}
+
+.youbiande{
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+.productTitle{
+  font-size: 28rpx;
+  padding-top: 30rpx;
+  padding-left: 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.price_gouwuche{
+  width: 65%;
+  display: flex;
+  position: absolute;
+  bottom: 40rpx;
+}
+
+.fenleiPrice{
+  font-size: 28rpx;
+  color: #fb312f;
+  padding-left: 20rpx;
+  font-weight: bold;
+}
+
+.gouwucehtubiao{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 0;
+  top: -10rpx;
+}
+
+.orderList{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+}
+
+.orderItem{
+  width: 95%;
+  margin-left: 2.5%;
+  border-radius: 15rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+}
+
+.orderItem:last-child{
+  margin-bottom: 20rpx;
+}
+
+.orderBianhao_type{
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.bianhao{
+  font-size: 28rpx;
+  color: #666666;
+  padding-left: 20rpx;
+}
+
+.changeToCloudStore{
+  font-size: 28rpx;
+  color: #006eff;
+  padding-left: 20rpx;
+}
+
+.type{
+  font-size: 30rpx;
+  color: #fb312f;
+  position: absolute;
+  right: 20rpx;
+}
+
+.img_title_price_num{
+  width: 100%;
+  display: flex;
+  margin-top: 20rpx;
+  position: relative;
+}
+
+.img{
+  width: 25%;
+  height: 180rpx;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+}
+
+.title{
+  width: 50%;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.price_num{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 20rpx;
+  text-align: right;
+  margin-top: 40rpx;
+}
+
+.price{
+  font-size: 28rpx;
+  color: #333;
+}
+
+.num{
+  font-size: 30rpx;
+  color: #333;
+}
+
+.gong_heji{
+  width: 100%;
+  height: 70rpx;
+  position: relative;
+  display: flex;
+  right: 0;
+  text-align: right;
+}
+
+.gongde{
+  position: absolute;
+  right: 20rpx;
+}

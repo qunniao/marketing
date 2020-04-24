@@ -1,0 +1,32 @@
+<view class="SearchBox">
+  <view class="Search_input_top_box">
+    <view class="Search_ico_box">
+    </view>
+    <input class="Search_Input" focus="{{name_focus}}" confirm-type="search" bindconfirm="bindconfirm" placeholder='请输入商品名称进行搜索' bindinput='inputvalue' value="{{input_value}}"></input>
+    <view class="Search_btn" bindtap='search'>{{SearchText}}</view>
+  </view>
+  <view class="Search_xian"></view>
+  <!--搜索记录盒子-->
+  <view class="Search_record_box">
+    <view class="Search_record_text">
+      <text>搜索记录</text>
+      <image src='../../imgs/shanchu.png' bindtap='delete_list'></image>
+    </view>
+    <!--记录词的盒子-->
+    <view class="History_box">
+      <view class="History-list">
+        <text wx:for="{{listarr}}" data-text="{{item}}" wx:key="key" bindtap='this_value'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 搜索列表 -->
+  <view class="leftItem" wx:for="{{rightList}}" bindtap="goDetails" data-postad="{{item.pid}}">
+    <image src="{{item.cover}}"></image>
+    <view class="title_zj">
+      <text>{{item.title}}</text>
+    </view>
+    <view class="price">
+      <text>￥{{item.price}}</text>
+    </view>
+  </view>
+</view>

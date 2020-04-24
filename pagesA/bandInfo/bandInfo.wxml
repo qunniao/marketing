@@ -1,0 +1,15 @@
+<view class='header'>
+  <view class='classfication'>
+    <text class='classItem'>真实姓名</text>
+    <input type='text' class='classItemInput' value='{{realName}}' placeholder='请填写真实姓名' bindinput='userName'/>
+  </view>
+  <view class='classfication'>
+    <text class='classItem'>银行卡号</text>
+    <input type='text' class='classItemInput' value="{{cardNumber}}" placeholder='请填写银行卡号' bindinput='phone'/>
+  </view>
+
+</view>
+
+<view class='submit'>
+  <button bindtap='submit'>保存</button>
+</view>

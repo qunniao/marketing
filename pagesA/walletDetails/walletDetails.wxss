@@ -1,0 +1,63 @@
+page{
+  background: #F1F1F1;
+}
+
+.mingxiList{
+  margin-top: 10rpx;
+  width: 100%;
+  background: #fff;
+}
+
+.mingxiItem{
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  position: relative;
+  border-bottom: 1px solid rgb(250, 250, 250);
+}
+
+.mingxiItem:last-child{
+  border: 0;
+}
+
+.left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mingxiTitle{
+  font-size: 25rpx;
+  padding-left: 20rpx;
+  width: 85%;
+}
+
+.yue{
+  font-size: 26rpx;
+  color: #696969;
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+}
+
+.right{
+  height: 100%;
+  position: absolute;
+  right: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  justify-content: center;
+  text-align: right;
+}
+
+.time{
+  font-size: 26rpx;
+  color: #818181;
+}
+
+.mingxiPrice{
+  font-size: 40rpx;
+  color: #464646;
+  padding-top: 10rpx;
+  font-weight: bold;
+}

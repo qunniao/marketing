@@ -1,0 +1,114 @@
+/**app.wxss**/
+/*  底部悬浮导航  */
+body{
+  background: #F7F8F8
+}
+
+.fix_nav_wp .nav_link{
+  flex:1;
+}
+
+.fix_nav_wp-IPX .nav_link{
+  flex: 1;
+}
+
+.flex{
+  display:-webkit-flex;
+  display: flex;
+  width:100%;}
+
+.center_content{
+  display:flex;
+  justify-content: center
+}
+
+.fix_nav_wp-IPX{
+  height:150rpx;
+  position: fixed;
+  left:0;
+  bottom:0;
+  background:#fff;
+  z-index: 10
+}
+
+.fix_nav_wp{
+  height:140rpx;
+  position: fixed;
+  left:0;
+  bottom:0;
+  background:#fff;
+  z-index: 1000;
+}
+
+.scan_tabbar{
+  height:120rpx;
+  width:120rpx;
+  border-radius: 50%;
+  background:linear-gradient(90deg,rgba(78,178,255,1) 0%,rgba(0,144,255,1) 100%);
+  margin-top:-60rpx;
+  position: relative;
+}
+
+.scan_tabbar>view{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fix_nav_wp .nav_link image{
+  width:40rpx;
+  height:40rpx;
+  margin-top: 16rpx;
+  margin-bottom: 4rpx;
+}
+
+.fix_nav_wp .nav_link .scan_tabbar image{
+  width:59rpx;
+  height:38rpx;
+  margin-top: 16rpx;
+}
+
+.fix_nav_wp-IPX .nav_link image{
+  width:40rpx;
+  height:40rpx;
+  margin-top: 16rpx;
+  margin-bottom: 4rpx;
+}
+
+.fix_nav_wp-IPX .nav_link .scan_tabbar image{
+  width:59rpx;
+  height:38rpx;
+  margin-top: 16rpx;
+}
+
+
+.content_status{
+  font-size: 20rpx;
+  color: #FFF;
+  line-height: 28rpx;
+  margin-top: 8rpx;
+}
+
+.content_time{
+  font-size: 28rpx;
+  color: #FFF;
+  font-weight: 500;
+  line-height: 40rpx;
+}
+
+.tabbar_select{
+  font-size:24rpx;
+  color:#493131;
+  height:30rpx;
+}
+
+.tabbar_unselect{
+  font-size:24rpx;
+  color:#898989;
+  height:30rpx;
+}
+
+.ppp{
+  margin-top: 10rpx;
+  height: 100%;
+}

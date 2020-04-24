@@ -1,0 +1,99 @@
+<view class='header'>
+<!-- 
+  <view class='search'>
+    <input type='text' bindinput="orderNumber" focus="{{name_focus}}" confirm-type="search" bindconfirm="bindconfirm" placeholder='搜索订单信息'></input>
+    <image src='../../imgs/search.png'></image>
+  </view>
+-->
+  <view class='classfication'>
+    <view class='{{num==0?"active":"classficationItem"}}' data-num='0' catchtap='changeOil'>
+      <text>全部</text>
+    </view>
+    <view class='{{num==1?"active":"classficationItem"}}' data-num='1' catchtap='changeOil'>
+      <text>待付款</text>
+    </view>
+    <view class='{{num==2?"active":"classficationItem"}}' data-num='2' catchtap='changeOil'>
+      <text>待发货</text>
+    </view>
+    <view class='{{num==3?"active":"classficationItem"}}' data-num='3' catchtap='changeOil'>
+      <text>待收货</text>
+    </view>
+    <view class='{{num==4?"active":"classficationItem"}}' data-num='5' catchtap='changeOil'>
+      <text>售后</text>
+    </view>
+  </view>
+</view>
+
+<view class='orderList'>
+  <view class='orderItem' wx:for="{{order}}">
+    <view class='orderBianhao_type'>
+      <text class='bianhao' decode='{{true}}'>创建时间&nbsp;&nbsp;{{item.gmtCreate}}</text>
+      <text class='type' wx:if="{{item.orderState == 0}}">已取消</text>
+      <text class='type' wx:if="{{item.orderState == 1}}">待付款</text>
+      <text class='type' wx:if="{{item.orderState == 2}}">待发货</text>
+      <text class='type' wx:if="{{item.orderState == 3}}">待收货</text>
+      <text class='type' wx:if="{{item.orderState == 4}}">已完成</text>
+      <text class='type' wx:if="{{item.orderState == 5}}">退款中</text>
+      <text class='type' wx:if="{{item.orderState == 6}}">退款完成</text>
+    </view>
+    <view class='img_title_price_num' wx:for="{{item.orderProductList}}" wx:for-item="orderProductList" bindtap='orderDetails' data-id="{{item.id}}">
+      <image src='{{orderProductList.cover}}' class='img'></image>
+      <text class='title'>{{orderProductList.title}}</text>
+      <view class='price_num'>
+        <text class='price'>￥{{orderProductList.productPrice}}</text>
+        <text class='num'>x{{orderProductList.productNum}}</text>
+      </view>
+    </view>
+    <view class='gong_heji'>
+      <view class='gongde'>
+        <text class='gong'>共 {{item.orderProductList.length}} 件商品</text>
+        <text class='heji'>合计:￥{{item.totalPrice}}</text>
+      </view>
+    </view>
+
+    <!--<view class='twoButton' wx:if="{{item.orderState == 0}}" style="height:0;border:0"></view>-->
+   
+   <view class='twoButton' wx:if="{{item.orderState == 0}}">
+        <view class='buttons'>
+          <button bindtap="deleteOrder" data-id="{{item.id}}">删除订单</button>
+        </view>
+      </view>
+
+    <view class='twoButton' wx:if="{{item.orderState == 1}}">
+      <view class='buttons'>
+        <button bindtap="cancel" data-id="{{item.id}}">取消订单</button>
+        <button bindtap='orderDetails' data-id="{{item.id}}">立即支付</button>
+      </view>
+    </view>
+    <view class='twoButton' wx:if="{{item.orderState == 2}}">
+      <view class='buttons'>
+        <!--<button data-id="{{item.id}}">申请退款</button>-->
+        <button bindtap="changeToCloudStore" data-id="{{item.id}}"  style="border: 1px solid #006eff;color: #006eff; margin-left: 30rpx;">转云库存</button>
+      </view>
+    </view>
+    <view class='twoButton' wx:if="{{item.orderState == 3}}">
+      <view class='buttons'>
+        <button data-id="{{item.id}}" bindtap="goToLogisticsPage">查看物流</button>
+        <button data-id="{{item.id}}" bindtap="finishOrder">确认收货</button>
+      </view>
+    </view>
+    <view class='twoButton' wx:if="{{item.orderState == 4}}">
+      <view class='buttons'>
+        <button data-id="{{item.id}}" bindtap="goToLogisticsPage">查看物流</button>
+        <button bindtap="deleteOrder" data-id="{{item.id}}">删除订单</button>
+      </view>
+    </view>
+    <view class='twoButton' wx:if="{{item.orderState == 5}}">
+      <view class='buttons'>
+        <button data-id="{{item.id}}" bindtap="goToLogisticsPage">查看物流</button>
+        <button data-id="{{item.id}}">退款中</button>
+      </view>
+    </view>
+    
+    <view class='twoButton' wx:if="{{item.orderState == 6}}">
+      <view class='buttons'>
+        <button bindtap="deleteOrder" data-id="{{item.id}}">删除订单</button>
+      </view>
+    </view>
+  </view>
+</view>

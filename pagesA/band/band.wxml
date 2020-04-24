@@ -1,0 +1,40 @@
+<view class='addressItem' wx:for="{{list}}">
+  <view class='bandcard' bindtap='updateItem' data-id="{{item.id}}">
+    <view class='band_content'>
+      <image src='../../imgs/band.png'></image>
+      <text class='band_name'>{{item.cardName}}</text>
+    </view>
+    <text class='band_number'>{{item.cardNumber}}</text>
+    <view class='buttons2'>
+      <button>仅用于提现</button>
+    </view>
+  </view>
+
+  <!-- 
+  <view class='moren_edit_delete'>
+    
+    <view class='eidt_delete'>
+    
+      <view class='edit' bindtap='edit' data-id="{{item.id}}">
+        <image src='../../imgs/edit.png'></image>
+        <text class='editTitle'>编辑</text>
+      </view>
+      
+      <view class='edit' bindtap="delete" data-id="{{item.id}}">
+        <image src='../../imgs/delete.png'></image>
+        <text class='editTitle'>删除</text>
+      </view>
+     
+    </view>
+  </view>
+   -->
+</view>
+
+<view class="gouride"></view>
+
+<view class='buttons' wx:if="{{hasData}}">
+  <!--<button bindtap='updateItem' data-id="{{item.id}}">修改该银行卡</button>-->
+</view>
+<view class='buttons' wx:else>
+  <button bindtap='addItem' data-id="{{item.id}}">添加银行卡</button>
+</view>

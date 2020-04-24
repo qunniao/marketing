@@ -1,0 +1,28 @@
+<view class='addressItem' wx:for="{{address}}">
+  <view class='name_phone_address' bindtap="queren" data-id="{{item.id}}">
+    <view class='name_phone'>
+      <text class='name'>收货人：{{item.contactName}}</text>
+      <text class='phone'>{{item.contactPhone}}</text>
+    </view>
+    <text class='address'>{{item.contactAddress}}</text>
+  </view>
+  <view class='moren_edit_delete'>
+    <text class='moren' wx:if="{{item.isDefault===true}}">默认地址</text>
+    <view class='eidt_delete'>
+      <view class='edit' bindtap='edit' data-id="{{item.id}}">
+        <image src='../../imgs/edit.png'></image>
+        <text class='editTitle'>编辑</text>
+      </view>
+      <view class='edit' bindtap="delete" data-id="{{item.id}}">
+        <image src='../../imgs/delete.png'></image>
+        <text class='editTitle'>删除</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="gouride"></view>
+
+<view class='bottom' bindtap='addRess'>
+  添加新地址
+</view>

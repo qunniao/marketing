@@ -1,0 +1,17 @@
+.shouhuodizhi{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.shouhuodizhi::after{
+  border: none;
+}
+
+.shouhuodizhi text{
+  padding-left: 5%;
+}

@@ -1,0 +1,25 @@
+page{
+  background: #F8F8F8;
+}
+.titleStyle{
+  font-size: 28rpx;
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  align-items: left;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+  margin-left: 20rpx;
+  font-weight: bold;
+}
+
+.itemStyle{
+  font-size: 28rpx;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding-left:20rpx;
+}

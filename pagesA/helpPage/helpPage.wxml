@@ -1,0 +1,12 @@
+<view wx:for="{{list}}" wx:key="item"  wo:for-item='item'>
+  <view class='titleStyle'>
+    <text class='classficationTitle'>{{item.name}}</text>
+    <view class='righta'></view>
+  </view>
+  <view wx:for="{{item.list}}" wx:key="q"  wo:for-item='q' bindtap='goDetails' data-id="{{item.id}}">
+    <view class='itemStyle'>
+      <text class='classficationTitle'>{{item.title}}</text>
+      <view class='righta'></view>
+    </view>
+  </view>
+</view>

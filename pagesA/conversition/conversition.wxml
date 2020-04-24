@@ -1,0 +1,12 @@
+<import src="../../modules/chat-input/chat-input.wxml"/> 
+<template is="chat-input" data="{{inputObj:inputObj,textMessage:textMessage,showVoicePart:true}}"/>
+<my-component my-property='{{bb}}' />
+<view class="huihuayemian">
+  <view class="time">{{time}}</view>
+  <view class="company">湛程互联网科技有限公司为您服务</view>
+</view>
+<view class="dibu">
+  <input type="text" class="liaotian"></input>
+  <image src="../../res/imgs/bq.png"></image>
+  <image src="../../res/imgs/jia1.png"></image>
+</view>
